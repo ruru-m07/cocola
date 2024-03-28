@@ -195,3 +195,33 @@ model Comment {
   createdAt                    DateTime         @default(now())
   updatedAt                    DateTime         @updatedAt
 }
+
+enum NotificationType {
+  pullRequest
+  issue
+  mention
+  action
+  assign
+}
+
+model Notifications {
+  id               String           @id @default(auto()) @map("_id") @db.ObjectId
+  notificationType NotificationType
+  user             String
+  repository       String
+  status           String
+  title            String
+  body             String
+  read             Boolean          @default(false)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+}
+
+model Subscriptions {
+  id               String           @id @default(auto()) @map("_id") @db.ObjectId
+  repository       String
+  user             String
+  notificationType NotificationType
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+}

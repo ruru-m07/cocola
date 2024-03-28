@@ -206,7 +206,10 @@ const Page = ({
                       <CircleDot color="#3fb950" size={18} />
                     </div>
                     <div className="ml-3">
-                      <Link href={`/${params.username}/${params.repository}/issues/${item.number}`} className="mb-2">
+                      <Link
+                        href={`/${params.username}/${params.repository}/issues/${item.number}`}
+                        className="mb-2"
+                      >
                         {item.title}
                       </Link>
                       <div className="text-xs text-muted-foreground">
